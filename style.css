@@ -1,0 +1,27 @@
+body{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+.main{
+    position:absolute;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    border-radius: 20%;
+    border: 5px solid green;
+    background-color: rgba(226, 255, 83, 0.4);
+}
+button{
+    position: absolute;
+    top: 50%;
+}
+#again {
+}
+input{
+    width: 50%;
+}
+

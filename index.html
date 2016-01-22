@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="author" content="neal">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <link rel="stylesheet" href="style.css">
     <title>Guess Who</title>
     <script>
         //set global var;
@@ -12,38 +14,72 @@
         function pick_number(){
             var random_number = Math.floor(Math.random() * 10) + 1;
             //for cheat testing
-            //console.log(random_number);
+            console.log(random_number);
             the_number = random_number;
             return;
         }
 
         $(document).ready(function(){
 
-            $("button").click( function make_guess(){
+            $("#under").hide();
+            $("#again").hide();
+
+            $("#guess").click( function make_guess(){
 //get the user input
+                console.log("guess clicked");
                 var the_guess = $('#guess_input').val();
                 var the_guess = parseInt(the_guess);
+                console.log(the_guess);
 //                Compare the numbers switch
                 switch(true){
+                    case   isNaN(the_guess):
+                        $("#response_div").text("a number plz");
+                        break;
                     case the_guess == the_number:
                         $("#response_div").text("You guessed it!");
+                        $("#response_div").effect("explode");
+                        $("#guess").hide();
+                        $("#under").show();
+                        $("#again").show("slow");
                         break;
                     case the_guess > the_number:
                         $("#response_div").text("Too High!");
                         break;
                     case the_guess < the_number:
+                        yo();
                         $("#response_div").text("Too Low!");
+
                         break;
                     default:
-                        $("#response_div").text("What was that");
+                        $("#response_div").text() + "hi";
                 }
             });
+            function yo(){
+                console.log();
+                $("#response_div").text("sumtextWhat was that");
+            }
+
+            $("#again").click( function restart() {
+                console.log("restarting");
+                $("#response_div").text("Guess away!");
+                $("#guess").show("slow");
+                $("#response_div").show("fast");
+
+                $("#under").hide();
+                $("#again").hide();
+                pick_number();
+            });
+
         });
     </script>
 </head>
 <body onload="pick_number()">
 <input id="guess_input" type="text">
-<div id="response_div">The div</div>
-<button>guess</button>
+<div class="main" id="response_div"></div>
+<div class="main" id="under">YOU WIN!!</div>
+<button id="again">play again</button>
+<button id="guess">guess</button>
+
+
 </body>
 </html>
