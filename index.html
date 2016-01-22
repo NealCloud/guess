@@ -5,6 +5,8 @@
     <meta name="author" content="neal">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
     <link rel="stylesheet" href="style.css">
     <title>Guess Who</title>
     <script>
@@ -28,35 +30,42 @@
 //get the user input
                 console.log("guess clicked");
                 var the_guess = $('#guess_input').val();
+                console.log(the_guess);
                 var the_guess = parseInt(the_guess);
                 console.log(the_guess);
 //                Compare the numbers switch
                 switch(true){
-                    case   isNaN(the_guess):
-                        $("#response_div").text("a number plz");
+                    case isNaN(the_guess):
+                        yo("a number plz", false, the_guess);
                         break;
                     case the_guess == the_number:
-                        $("#response_div").text("You guessed it!");
-                        $("#response_div").effect("explode");
-                        $("#guess").hide();
-                        $("#under").show();
-                        $("#again").show("slow");
-                        break;
-                    case the_guess > the_number:
-                        $("#response_div").text("Too High!");
-                        break;
-                    case the_guess < the_number:
-                        yo();
-                        $("#response_div").text("Too Low!");
+                        yo("You guessed it!", true, the_guess);
 
                         break;
+                    case the_guess > the_number:
+                        yo("Too High!", false, the_guess);
+                        break;
+                    case the_guess < the_number:
+                        yo("Too Low!", false, the_guess);
+                        break;
                     default:
-                        $("#response_div").text() + "hi";
+                       yo("I dun know wat you did", false, the_guess);
                 }
             });
-            function yo(){
-                console.log();
-                $("#response_div").text("sumtextWhat was that");
+            function yo(text, win, guess){
+                $("#response_div").text(text);
+                if(!win){
+                    $("#bot_div").text(guess + " is wrong");
+                    $('#guess_input').val("").focus();
+                    $("#response_div").effect("shake");
+                    $("#bot_div").effect("shake");
+                }
+                else{
+                    $("#bot").addClass("hinge");
+                    $("#guess").effect("blind");
+                    $("#under").show("slow");
+                    $("#again").show("slow");
+                }
             }
 
             $("#again").click( function restart() {
@@ -64,21 +73,20 @@
                 $("#response_div").text("Guess away!");
                 $("#guess").show("slow");
                 $("#response_div").show("fast");
-
                 $("#under").hide();
                 $("#again").hide();
                 pick_number();
             });
-
         });
     </script>
 </head>
 <body onload="pick_number()">
-<input id="guess_input" type="text">
+<div class="fill"></div>
 <div class="main" id="response_div"></div>
-<div class="main" id="under">YOU WIN!!</div>
-<button id="again">play again</button>
-<button id="guess">guess</button>
+<div class="main" id="bot_div"></div>
+<input class="w3-round-xlarge " id="guess_input" type="text">
+<button class="w3-btn w3-round-xlarge w3-purple"  id="again">play again</button>
+<button class="w3-btn w3-round-xlarge w3-purple" id="guess">guess</button>
 
 
 </body>
