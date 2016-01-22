@@ -88,7 +88,6 @@ body{
     border-width:13px 13px 0;
     border-style:solid;
     border-color:#fff transparent;
-    /* reduce the damage in FF3.0 */
     display:block;
     width:0;
 }
@@ -99,8 +98,5 @@ body{
     border:5px solid #5a8f00;
     color:#333;
     background:#fff;
-    /* css3 */
-    -webkit-border-radius:10px;
-    -moz-border-radius:10px;
     border-radius:10px;
 }
