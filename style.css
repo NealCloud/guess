@@ -23,9 +23,12 @@ body{
     background-color: green;
 }
 #tongue {
+    position: absolute;
     background-color: pink;
-    visibility: hidden;
-    width:200px;
+    display: none;
+    left: 100px;
+    width:50px;
+    height: 0px;
 }
 .response_div{
 
@@ -34,7 +37,15 @@ body{
     width: 200px;
     height: 100px;
     border-radius: 20%;
-    border: 5px solid green;
+}
+.angry{
+    animation-name: angry;
+    animation-duration: 2s;
+}
+
+@keyframes angry {
+    from {background-color: #008000;}
+    to {background-color: #740c10;}
 }
 
 @keyframes hinge {

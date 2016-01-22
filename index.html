@@ -68,18 +68,37 @@
                 }
 //  Missed Number Condition
                 else{
+//                    take away lives
                     lives--;
-                    $("#response_div").text("Nooooo!  " +guess + "  " + text);
+                    $("#upper_face").addClass("angry");
+                    $("#lower_face").addClass("angry");
+                    $("#response_div").text("Nooooo!  " + guess + "  " + text);
+//                    animations
+
+
+
                     $("#upper_face").effect("shake");
                     $("#lower_face").effect("bounce");
-                    $("#lower_face").animate({top: "50px"});
-                    $("#lower_face").animate({top: "0px"});
+                    $("#lower_face").animate({top: "50px"}, function(){
+                        console.log("done");
+                        $("#lower_face").animate({top: "0px"});
+                        $("#tongue").animate({height: "+=200px"}, function(){
+                            console.log("done");
+                            $("#tongue").animate({height: "-=200px"});
+                        });
+                    });
+
+
+
+
+
                 }
             }
 
             $("#again_button").click( function restart() {
                 console.log("restarting");
                 lives = 3;
+
                 $("#again_button").hide("fast");
                 $("#response_div").text("Guess my number if you wish to Pass!");
                 $("#guess_button").show("slow");
