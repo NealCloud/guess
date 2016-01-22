@@ -23,16 +23,12 @@
 
         $(document).ready(function(){
 
-            $("#under").hide();
             $("#again").hide();
 
             $("#guess").click( function make_guess(){
 //get the user input
-                console.log("guess clicked");
                 var the_guess = $('#guess_input').val();
-                console.log(the_guess);
                 var the_guess = parseInt(the_guess);
-                console.log(the_guess);
 //                Compare the numbers switch
                 switch(true){
                     case isNaN(the_guess):
@@ -40,7 +36,6 @@
                         break;
                     case the_guess == the_number:
                         yo("You guessed it!", true, the_guess);
-
                         break;
                     case the_guess > the_number:
                         yo("Too High!", false, the_guess);
@@ -55,10 +50,12 @@
             function yo(text, win, guess){
                 $("#response_div").text(text);
                 if(!win){
-                    $("#bot_div").text(guess + " is wrong");
+                    $("#bot_div").text(guess + "  " + text);
                     $('#guess_input').val("").focus();
-                    $("#response_div").effect("shake");
-                    $("#bot_div").effect("shake");
+                    $("#upper_face").effect("shake");
+                    $("#lower_face").effect("bounce");
+                    $("#lower_face").animate({top: "50px"});
+                    $("#lower_face").animate({top: "0px"});
                 }
                 else{
                     $("#bot").addClass("hinge");
@@ -70,7 +67,7 @@
 
             $("#again").click( function restart() {
                 console.log("restarting");
-                $("#response_div").text("Guess away!");
+                $("#response_div").text("Guess my number if you wish to Pass!");
                 $("#guess").show("slow");
                 $("#response_div").show("fast");
                 $("#under").hide();
@@ -81,13 +78,18 @@
     </script>
 </head>
 <body onload="pick_number()">
-<div class="fill"></div>
-<div class="main" id="response_div"></div>
-<div class="main" id="bot_div"></div>
-<input class="w3-round-xlarge " id="guess_input" type="text">
-<button class="w3-btn w3-round-xlarge w3-purple"  id="again">play again</button>
-<button class="w3-btn w3-round-xlarge w3-purple" id="guess">guess</button>
 
+    <div class="triangle-border" id="response_div"></div>
+
+    <div id="upper_face"></div>
+    <div id="tongue">tongue</div>
+    <div class="main" id="lower_face"></div>
+
+    <input class="w3-round-xlarge " id="guess_input" type="text">
+
+    <button class="w3-btn w3-round-xlarge w3-purple"  id="again">play again</button>
+
+    <button class="w3-btn w3-round-xlarge w3-purple" id="guess">guess</button>
 
 </body>
 </html>
