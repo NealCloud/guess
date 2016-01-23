@@ -1,34 +1,96 @@
 body{
-    /*display: flex;*/
-    /*flex-flow: column wrap;*/
-    /*justify-content: center;*/
+    max-width: 350px;
+    margin: auto;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
 }
+input, button{
+    border-radius: 60%;
+    width: 80px;
+    height:80px;
+    text-align: center;
+
+}
+input{
+    font-size: 60px;
+}
+button{
+    margin: auto;
+    background-color: #c39005;
+    border: 2px solid gold;
+}
+.press{
+    width: 350px;
+    height: 100px;
+    border: 1px solid green;
+}
+
 .eye{
-    height:50px;
-    width:50px;
+    position: absolute;
+    left: 40%;
+    border: 4px solid black;
+    height:70px;
+    width:70px;
     border-radius: 50%;
-    background-color: pink;
+    background-color: white;
+
+}
+.pupil{
+
+    position: relative;
+    bottom: -44%;
+    left: 23%;
+    height:30px;
+    width:40px;
+    border-radius: 50%;
+    background-color: black;
+}
+.eye span{
+    position: absolute;
+    font-size: 100px;
+    bottom: 29%;
+    left: 3%;
+    font-family: 'Cambay', sans-serif;
 }
 #upper_face{
+    position: relative;
     height:100px;
     width:200px;
     border-radius: 90px 90px 0 0;
-    background-color: green;
+    z-index: 50;
+
 }
 #lower_face {
     position: relative;
     height: 100px;
     width: 200px;
     border-radius: 0 0 90px 90px;
-    background-color: green;
 }
 #tongue {
     position: absolute;
     background-color: pink;
     display: none;
-    left: 100px;
+    left: 20px;
+    top: 0px;
     width:50px;
     height: 0px;
+    border-radius: 0 0 25% 25%;
+}
+#army{
+   display: flex;
+    align-items: flex-start;
+    width: 300px;
+    height: 50px;
+    border: 1px solid green;
+}
+#army div{
+    position: relative;
+    margin: 10%;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    display: inline-block;
 }
 .response_div{
 
@@ -37,17 +99,33 @@ body{
     width: 200px;
     height: 100px;
     border-radius: 20%;
+    position: relative;
+}
+.green{
+    background-color: green;
 }
 .angry{
     animation-name: angry;
     animation-duration: 2s;
+    box-sizing: border-box;
 }
+.angry2{
+    background-color: #c3061f;
 
+}
 @keyframes angry {
-    from {background-color: #008000;}
-    to {background-color: #740c10;}
+    from {
+        background-color: #008000;
+    }
+    to {
+        background-color: #740c10;
+    }
 }
 
+.hinge {
+    animation-duration: 7s;
+    animation-name: hinge;
+}
 @keyframes hinge {
     0% {
         transform-origin: top left;
@@ -66,16 +144,12 @@ body{
         animation-timing-function: ease-in-out;
         opacity: 1;
     }
-
     to {
         transform: translate3d(0, 700px, 0);
         opacity: 0;
     }
 }
 
-.hinge {
-    animation-name: hinge;
-}
 
 
 .triangle-border:before {
