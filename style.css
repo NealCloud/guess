@@ -6,23 +6,24 @@ body{
     justify-content: center;
 }
 input, button{
-    border-radius: 60%;
+
     width: 80px;
     height:80px;
     text-align: center;
 
 }
 input{
+
     font-size: 60px;
 }
 button{
-    margin: auto;
+    border-radius: 60%;
     background-color: #c39005;
     border: 2px solid gold;
 }
 .press{
-    width: 350px;
-    height: 100px;
+    width: 100px;
+    height: 80px;
     border: 1px solid green;
 }
 
@@ -37,7 +38,6 @@ button{
 
 }
 .pupil{
-
     position: relative;
     bottom: -44%;
     left: 23%;
@@ -85,43 +85,43 @@ button{
     border: 1px solid green;
 }
 #army div{
+    border-radius: 20%;
     position: relative;
     margin: 10%;
     width: 20px;
     height: 20px;
-    background-color: red;
+    background-color: #a0aeff;
     display: inline-block;
 }
+#army div div{
+    border-radius: 50%;
+    background-color: #ff9079;
+    position:absolute;
+    top:-18px;
+    left: -2px;
+}
+
 .response_div{
 
 }
+
 .main{
     width: 200px;
     height: 100px;
     border-radius: 20%;
     position: relative;
 }
+
 .green{
     background-color: green;
 }
-.angry{
-    animation-name: angry;
-    animation-duration: 2s;
-    box-sizing: border-box;
-}
-.angry2{
+
+/*frog red color*/
+.angry {
     background-color: #c3061f;
-
-}
-@keyframes angry {
-    from {
-        background-color: #008000;
-    }
-    to {
-        background-color: #740c10;
-    }
 }
 
+/*victory animation*/
 .hinge {
     animation-duration: 7s;
     animation-name: hinge;
@@ -150,8 +150,7 @@ button{
     }
 }
 
-
-
+/*dialogue tree*/
 .triangle-border:before {
     content:"";
     position:absolute;
