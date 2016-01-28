@@ -55,15 +55,15 @@ view = {
         if(win){
           //  $("#response_div").text("nooo");
             $("#eyebrow").show();
+            view.disableBtn("button", 8000);
             view.toggleBtnAndSay("u win!");
     //      Face win animation
             $("#lower_face").addClass("hinge").delay(8000).queue(function(next){
-
                 $(this).removeClass("hinge");
-                // $(this).hide();
+                $("#army").html("");
+                $("#eyebrow").hide();
                 next();
             });
-
         }
     //       Missed Number Condition
         else{
@@ -92,7 +92,7 @@ view = {
                 $(this).css("z-index", -1);
                 $("#army > div:first-child").remove();
                 $("#eyebrow").hide();
-                controller.setChompTime(2)
+                controller.setChompTime(2);
                 view.chomp();
                 $(".press").removeClass("background");
                 // $(this).hide();
@@ -100,6 +100,9 @@ view = {
             });
             if(lives <= 0) {
                 view.toggleBtnAndSay("You lose!");
+
+                view.disableBtn("button", 5000);
+                //view.chomp();
             }
         }
     },
@@ -109,7 +112,13 @@ view = {
         $("#guess_button").toggle();
         $("#again_button").toggle();
     },
-    //     create  more soliders in army div
+    disableBtn: function(targ, time){
+        $(targ).attr("disabled", "disabled").delay(time).queue(function(next){
+            $(this).removeAttr("disabled");
+            next();
+        });
+    },
+    //     create  more soldiers in army div
     createDudes: function(num) {
         for (var i = 0; i < num; i++) {
             var body = $("<div>");
@@ -149,11 +158,15 @@ $(document).ready(function(){
     $("#guess_button").toggle();
     $("#eyebrow").hide();
 //            replay button
-    $("#again_button").click(view.restart);
+    $("#again_button").click(function() {
+            view.restart();
+            view.disableBtn("button", 1000);
+        });
+
 
     //      guess button, disables on click delay
     $("#guess_button").on("click", function() {
-        $(this).attr("disabled", "disabled");
+        view.disableBtn("button", 2000);
         view.make_guess(); //this method contains your logic
     });
 });
