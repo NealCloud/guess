@@ -1,25 +1,28 @@
 # Guess
 
-A simple game of guessing.
-  - Guess a number 1 - 10
-  - you have 3 chances to win
+A simple number guessing game.
+> guess a number 1 - 10 to match the monsters
+> a demonstration of simple logic flow 
 
-> The game started out as a simple
-> demonstration of logic flow and
-> turned into a lesson on mixing animation
-> and jQuery to positions correctly aligned. 
+- [Live Demo](http://nealcloud.github.io/guess) 
+
+### Features
+  - 3 chances to guess the number
+  - css animations and text depending on choice
+  
+### Lessons Learned
+ - how to make conditionals
+ - how to animate css elements
 
 ### Version
-1.3
+1.2
 
 ### Tech
-* [ Javascript ]
-* [ jQuery ]
+* [jQuery]
 
 ### Todos
  - make mobile friendly
- - add more user interaction
-
+ - add stats
 
 License
 ----
