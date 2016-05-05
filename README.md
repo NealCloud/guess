@@ -13,6 +13,11 @@ A simple number guessing game.
 ### Lessons Learned
  - how to make conditionals
  - how to animate css elements
+ - using jquery to create animation orders
+
+'''javascript
+  $("#tongue").show().delay(500).animate({height: "+=240px"}).delay(300).animate({height: "-=240px"});
+'''
 
 ### Version
 1.2
@@ -23,7 +28,11 @@ A simple number guessing game.
 ### Todos
  - [ ] make mobile friendly
  - [ ] add stats
+ - [ ] create flags to prevent clicks
 
+### Bugs
+ - Clicking button before win animation finishes breaks game
+ 
 License
 ----
 MIT
