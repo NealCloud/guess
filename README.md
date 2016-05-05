@@ -16,6 +16,7 @@ A simple number guessing game.
  - how to animate css elements
  - using jquery to create animation orders
 
+tongue animation example
 ```javascript
   $("#tongue").show().delay(500).animate({height: "+=240px"}).delay(300).animate({height: "-=240px"});
 ```
