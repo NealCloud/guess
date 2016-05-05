@@ -21,8 +21,8 @@ A simple number guessing game.
 * [jQuery]
 
 ### Todos
- - make mobile friendly
- - add stats
+ - [ ] make mobile friendly
+ - [ ] add stats
 
 License
 ----
