@@ -20,6 +20,9 @@ A simple number guessing game.
   $("#tongue").show().delay(500).animate({height: "+=240px"}).delay(300).animate({height: "-=240px"});
 ```
 
+### Live view
+![ScreenShot](https://nealcloud.github.io/assets/img/c4.png)
+
 ### Version
 1.2
 
