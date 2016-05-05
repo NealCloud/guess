@@ -1,7 +1,8 @@
 # Guess
 
 A simple number guessing game.
-> guess a number 1 - 10 to match the monsters
+> guess a number 1 - 10 to match the monster's number
+
 > a demonstration of simple logic flow 
 
 - [Live Demo](http://nealcloud.github.io/guess) 
@@ -28,10 +29,11 @@ A simple number guessing game.
 ### Todos
  - [ ] make mobile friendly
  - [ ] add stats
+ - [ ] return key activates guess button
  - [ ] create flags to prevent clicks
 
 ### Bugs
- - Clicking button before win animation finishes breaks game
+ - Clicking guess button before win animation finishes breaks game
  
 License
 ----
